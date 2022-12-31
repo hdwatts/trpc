@@ -167,7 +167,8 @@ export type DecorateProcedure<
           }
         : object)
   : TProcedure extends AnyMutationProcedure
-  ? {
+  ? {                                        {
+      getQueryKey: () => QueryKey;
       useMutation: <TContext = unknown>(
         opts?: UseTRPCMutationOptions<
           inferProcedureInput<TProcedure>,
